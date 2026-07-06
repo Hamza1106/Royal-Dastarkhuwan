@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import { Instagram, Facebook, Twitter, Snowflake, ArrowRight } from "lucide-react";
+import { Snowflake, ArrowRight, Camera, Users, MessageCircle } from "lucide-react";
 
 export function Footer() {
   return (
@@ -81,7 +81,7 @@ export function Footer() {
         <div className="mt-12 flex flex-col items-center justify-between gap-4 border-t border-white/10 pt-8 text-xs text-foreground/50 md:flex-row">
           <div>© 2026 Frost & Flame. Crafted with fire and frost.</div>
           <div className="flex gap-4">
-            {[Instagram, Facebook, Twitter].map((I, i) => (
+            {[Camera, Users, MessageCircle].map((I, i) => (
               <a
                 key={i}
                 href="#"
