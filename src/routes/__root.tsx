@@ -77,14 +77,15 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
     meta: [
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
-      { title: "Lovable App" },
-      { name: "description", content: "Lovable Generated Project" },
-      { name: "author", content: "Lovable" },
-      { property: "og:title", content: "Lovable App" },
-      { property: "og:description", content: "Lovable Generated Project" },
+      { title: "Frost & Flame — A living Pakistani restaurant universe" },
+      { name: "description", content: "Slow fire, cold light. Karahi, biryani, BBQ, sweets and cold-brew chai across 12 cities. An immersive tasting journey." },
+      { name: "author", content: "Frost & Flame" },
+      { property: "og:title", content: "Frost & Flame — A living Pakistani restaurant universe" },
+      { property: "og:description", content: "Slow fire, cold light. An immersive tasting journey across 12 cities." },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
-      { name: "twitter:site", content: "@Lovable" },
+      { name: "twitter:title", content: "Frost & Flame" },
+      { name: "twitter:description", content: "A living Pakistani restaurant universe." },
     ],
     links: [
       {
