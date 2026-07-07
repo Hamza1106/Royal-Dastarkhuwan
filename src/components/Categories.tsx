@@ -1,10 +1,12 @@
 import { AnimatePresence, motion } from "framer-motion";
 import { useMemo, useState } from "react";
-import { Clock, Star } from "lucide-react";
+import { Clock, Plus, Star } from "lucide-react";
 import { categories, dishes, type Category } from "./menuData";
+import { useCart } from "./CartProvider";
 
 export function Categories() {
   const [active, setActive] = useState<Category>("All");
+  const { add } = useCart();
   const filtered = useMemo(
     () => (active === "All" ? dishes : dishes.filter((d) => d.category === active)),
     [active],
@@ -126,7 +128,18 @@ export function Categories() {
                   </div>
                 </div>
                 <p className="mt-3 text-sm text-foreground/60">{d.desc}</p>
-                <button className="mt-5 w-full rounded-xl bg-white/5 py-3 text-sm font-medium transition hover:bg-gradient-to-r hover:from-[var(--frost)] hover:to-[var(--aurora)] hover:text-[var(--deep)]">
+                <button
+                  onClick={() =>
+                    add({
+                      name: d.name,
+                      price: d.price,
+                      image: d.image,
+                      category: d.category,
+                    })
+                  }
+                  className="mt-5 inline-flex w-full items-center justify-center gap-2 rounded-xl bg-white/5 py-3 text-sm font-medium transition hover:bg-gradient-to-r hover:from-[var(--frost)] hover:to-[var(--aurora)] hover:text-[var(--deep)]"
+                >
+                  <Plus className="h-4 w-4" />
                   Add to table
                 </button>
               </motion.article>
