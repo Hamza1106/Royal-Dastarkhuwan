@@ -3,6 +3,7 @@ import { useEffect, useRef, useState } from "react";
 import { ArrowRight, Play, Sparkles } from "lucide-react";
 import heroDish from "@/assets/hero-dish.jpg";
 import { FloatingOrbs, Particles } from "./FloatingOrbs";
+import { StoryModal } from "./StoryModal";
 
 function Counter({ to, suffix = "" }: { to: number; suffix?: string }) {
   const [n, setN] = useState(0);
@@ -36,6 +37,7 @@ function Counter({ to, suffix = "" }: { to: number; suffix?: string }) {
 }
 
 export function Hero() {
+  const [storyOpen, setStoryOpen] = useState(false);
   const ref = useRef<HTMLDivElement>(null);
   const { scrollYProgress } = useScroll({ target: ref, offset: ["start start", "end start"] });
   const y = useTransform(scrollYProgress, [0, 1], [0, 240]);
@@ -141,7 +143,10 @@ export function Hero() {
                 <ArrowRight className="h-4 w-4 transition group-hover:translate-x-1" />
                 <span className="absolute inset-0 -translate-x-full bg-gradient-to-r from-transparent via-white/40 to-transparent transition-transform duration-700 group-hover:translate-x-full" />
               </a>
-              <button className="group inline-flex items-center gap-3 rounded-full glass px-6 py-4 text-sm font-medium transition hover:bg-white/10">
+              <button
+                onClick={() => setStoryOpen(true)}
+                className="group inline-flex items-center gap-3 rounded-full glass px-6 py-4 text-sm font-medium transition hover:bg-white/10"
+              >
                 <span className="grid h-8 w-8 place-items-center rounded-full bg-white/10 transition group-hover:scale-110">
                   <Play className="h-3.5 w-3.5 fill-current" />
                 </span>
@@ -249,6 +254,7 @@ export function Hero() {
           ))}
         </div>
       </div>
+      <StoryModal open={storyOpen} onClose={() => setStoryOpen(false)} />
     </section>
   );
 }

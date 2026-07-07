@@ -38,6 +38,7 @@ function Panel({ item, i }: { item: (typeof featured)[number]; i: number }) {
   const y = useTransform(scrollYProgress, [0, 1], ["-8%", "8%"]);
   const rot = useTransform(scrollYProgress, [0, 1], [-2, 2]);
   const reverse = i % 2 === 1;
+  const swayDelay = i * 0.4;
 
   return (
     <div
@@ -47,17 +48,41 @@ function Panel({ item, i }: { item: (typeof featured)[number]; i: number }) {
       }`}
     >
       <motion.div style={{ y, rotate: rot }} className="relative">
+        {/* Hanging cords */}
+        <div className="pointer-events-none absolute -top-24 left-1/4 z-0 h-24 w-px bg-gradient-to-b from-transparent via-white/30 to-white/50" />
+        <div className="pointer-events-none absolute -top-24 right-1/4 z-0 h-24 w-px bg-gradient-to-b from-transparent via-white/30 to-white/50" />
+        <div className="pointer-events-none absolute -top-24 left-1/4 h-2 w-2 -translate-x-1/2 rounded-full bg-white/60 shadow-[0_0_10px_var(--aurora)]" />
+        <div className="pointer-events-none absolute -top-24 right-1/4 h-2 w-2 translate-x-1/2 rounded-full bg-white/60 shadow-[0_0_10px_var(--aurora)]" />
+
         <div className="absolute -inset-6 -z-10 rounded-[2rem] bg-gradient-to-br from-[var(--aurora)]/30 to-[var(--primary)]/20 blur-3xl" />
-        <div className="overflow-hidden rounded-[2rem] glass-strong elegant-shadow">
+        {/* Hanging / swaying wrapper */}
+        <motion.div
+          animate={{ rotate: [-2.5, 2.5, -2.5] }}
+          transition={{
+            duration: 6 + i * 0.6,
+            repeat: Infinity,
+            ease: "easeInOut",
+            delay: swayDelay,
+          }}
+          style={{ transformOrigin: "top center" }}
+          whileHover={{ scale: 1.02 }}
+          className="relative overflow-hidden rounded-[2rem] glass-strong elegant-shadow"
+        >
           <motion.img
             src={item.img}
             alt={item.name}
             loading="lazy"
             className="h-[520px] w-full object-cover"
-            whileHover={{ scale: 1.06 }}
-            transition={{ duration: 0.8 }}
+            animate={{ scale: [1, 1.03, 1] }}
+            transition={{
+              duration: 8,
+              repeat: Infinity,
+              ease: "easeInOut",
+              delay: swayDelay,
+            }}
           />
-        </div>
+          <div className="pointer-events-none absolute inset-0 ring-1 ring-inset ring-white/10" />
+        </motion.div>
       </motion.div>
       <motion.div
         initial={{ opacity: 0, x: reverse ? -40 : 40 }}
