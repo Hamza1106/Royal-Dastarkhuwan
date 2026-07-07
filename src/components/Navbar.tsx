@@ -1,7 +1,8 @@
 import { Link } from "@tanstack/react-router";
-import { motion, useScroll, useMotionValueEvent } from "framer-motion";
+import { AnimatePresence, motion, useScroll, useMotionValueEvent } from "framer-motion";
 import { useState } from "react";
-import { Snowflake, User } from "lucide-react";
+import { ShoppingBag, Snowflake, User } from "lucide-react";
+import { useCart } from "./CartProvider";
 
 export function Navbar() {
   const [scrolled, setScrolled] = useState(false);
@@ -10,11 +11,12 @@ export function Navbar() {
 
   const links = [
     { to: "/", label: "Home" },
-    { to: "/", label: "Menu", hash: "categories" },
+    { to: "/menu", label: "Menu" },
     { to: "/", label: "Story", hash: "story" },
     { to: "/", label: "Branches", hash: "branches" },
     { to: "/", label: "Gallery", hash: "gallery" },
   ];
+  const { count, setOpen } = useCart();
 
   return (
     <motion.header
@@ -46,24 +48,57 @@ export function Navbar() {
 
           <nav className="hidden items-center gap-1 md:flex">
             {links.map((l) => (
-              <a
-                key={l.label}
-                href={l.hash ? `#${l.hash}` : "/"}
-                className="group relative rounded-full px-4 py-2 text-sm text-foreground/80 transition hover:text-foreground"
-              >
-                <span className="relative z-10">{l.label}</span>
-                <span className="absolute inset-0 scale-75 rounded-full bg-white/5 opacity-0 transition group-hover:scale-100 group-hover:opacity-100" />
-              </a>
+              l.hash ? (
+                <a
+                  key={l.label}
+                  href={`#${l.hash}`}
+                  className="group relative rounded-full px-4 py-2 text-sm text-foreground/80 transition hover:text-foreground"
+                >
+                  <span className="relative z-10">{l.label}</span>
+                  <span className="absolute inset-0 scale-75 rounded-full bg-white/5 opacity-0 transition group-hover:scale-100 group-hover:opacity-100" />
+                </a>
+              ) : (
+                <Link
+                  key={l.label}
+                  to={l.to}
+                  className="group relative rounded-full px-4 py-2 text-sm text-foreground/80 transition hover:text-foreground"
+                >
+                  <span className="relative z-10">{l.label}</span>
+                  <span className="absolute inset-0 scale-75 rounded-full bg-white/5 opacity-0 transition group-hover:scale-100 group-hover:opacity-100" />
+                </Link>
+              )
             ))}
           </nav>
 
-          <Link
-            to="/auth"
-            className="group relative inline-flex items-center gap-2 overflow-hidden rounded-full bg-gradient-to-r from-[var(--frost)] to-[var(--aurora)] px-5 py-2 text-sm font-medium text-[var(--deep)] transition hover:shadow-[0_0_30px_-5px_var(--aurora)]"
-          >
-            <User className="h-4 w-4" />
-            <span>Sign in</span>
-          </Link>
+          <div className="flex items-center gap-2">
+            <button
+              onClick={() => setOpen(true)}
+              className="group relative inline-flex items-center gap-2 rounded-full glass px-4 py-2 text-sm font-medium transition hover:bg-white/10"
+            >
+              <ShoppingBag className="h-4 w-4" />
+              <span className="hidden sm:inline">Table</span>
+              <AnimatePresence>
+                {count > 0 && (
+                  <motion.span
+                    key={count}
+                    initial={{ scale: 0.4, opacity: 0 }}
+                    animate={{ scale: 1, opacity: 1 }}
+                    exit={{ scale: 0.4, opacity: 0 }}
+                    className="grid h-5 min-w-5 place-items-center rounded-full bg-gradient-to-br from-[var(--frost)] to-[var(--aurora)] px-1.5 text-[10px] font-bold text-[var(--deep)]"
+                  >
+                    {count}
+                  </motion.span>
+                )}
+              </AnimatePresence>
+            </button>
+            <Link
+              to="/auth"
+              className="group relative hidden items-center gap-2 overflow-hidden rounded-full bg-gradient-to-r from-[var(--frost)] to-[var(--aurora)] px-5 py-2 text-sm font-medium text-[var(--deep)] transition hover:shadow-[0_0_30px_-5px_var(--aurora)] sm:inline-flex"
+            >
+              <User className="h-4 w-4" />
+              <span>Sign in</span>
+            </Link>
+          </div>
         </div>
       </div>
     </motion.header>
