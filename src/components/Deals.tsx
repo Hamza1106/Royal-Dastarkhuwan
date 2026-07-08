@@ -1,6 +1,7 @@
 import { motion, useMotionValue, useSpring, useTransform } from "framer-motion";
 import { Zap } from "lucide-react";
 import { useRef, type MouseEvent } from "react";
+import { useCart } from "./CartProvider";
 
 const deals = [
   { title: "Family Feast", off: "25% OFF", price: "Rs 3,990", was: "Rs 5,290", tint: "from-[var(--frost)] to-[var(--aurora)]" },
@@ -41,6 +42,7 @@ export function Deals() {
 
 function DealCard({ d, i }: { d: (typeof deals)[number]; i: number }) {
   const ref = useRef<HTMLDivElement>(null);
+  const { add } = useCart();
   const mx = useMotionValue(0);
   const my = useMotionValue(0);
   const rx = useSpring(useTransform(my, [-0.5, 0.5], [12, -12]), {
@@ -120,10 +122,17 @@ function DealCard({ d, i }: { d: (typeof deals)[number]; i: number }) {
         <div className="text-sm text-foreground/50 line-through">{d.was}</div>
       </div>
       <button
-        className="mt-6 w-full rounded-xl bg-white/5 py-3 text-sm font-medium transition hover:bg-white/10"
+        onClick={() =>
+          add({
+            name: d.title,
+            price: parseInt(d.price.replace(/[^0-9]/g, ""), 10),
+            category: "Live deal",
+          })
+        }
+        className="group/btn relative mt-6 w-full overflow-hidden rounded-xl bg-white/5 py-3 text-sm font-semibold transition hover:bg-gradient-to-r hover:from-[var(--frost)] hover:to-[var(--aurora)] hover:text-[var(--deep)]"
         style={{ transform: "translateZ(20px)" }}
       >
-        Claim tonight
+        <span className="relative z-10">Claim tonight →</span>
       </button>
     </motion.div>
   );

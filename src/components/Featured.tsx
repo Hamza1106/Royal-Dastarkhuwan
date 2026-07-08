@@ -133,9 +133,11 @@ export function Featured() {
           Four rituals we perform{" "}
           <span className="text-gradient">every single night.</span>
         </h2>
-        {featured.map((f, i) => (
-          <Panel key={f.name} item={f} i={i} />
-        ))}
+        <div className="mt-40">
+          {featured.map((f, i) => (
+            <Panel key={f.name} item={f} i={i} />
+          ))}
+        </div>
       </div>
     </section>
   );
