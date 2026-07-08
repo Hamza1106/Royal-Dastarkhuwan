@@ -1,8 +1,9 @@
 import { Link } from "@tanstack/react-router";
 import { AnimatePresence, motion, useScroll, useMotionValueEvent } from "framer-motion";
 import { useState } from "react";
-import { ShoppingBag, Snowflake, User } from "lucide-react";
+import { LogOut, ShoppingBag, Snowflake, User } from "lucide-react";
 import { useCart } from "./CartProvider";
+import { useAuth } from "./AuthProvider";
 
 export function Navbar() {
   const [scrolled, setScrolled] = useState(false);
@@ -17,6 +18,7 @@ export function Navbar() {
     { to: "/", label: "Gallery", hash: "gallery" },
   ];
   const { count, setOpen } = useCart();
+  const { user, signOut } = useAuth();
 
   return (
     <motion.header
@@ -91,13 +93,26 @@ export function Navbar() {
                 )}
               </AnimatePresence>
             </button>
-            <Link
-              to="/auth"
-              className="group relative hidden items-center gap-2 overflow-hidden rounded-full bg-gradient-to-r from-[var(--frost)] to-[var(--aurora)] px-5 py-2 text-sm font-medium text-[var(--deep)] transition hover:shadow-[0_0_30px_-5px_var(--aurora)] sm:inline-flex"
-            >
-              <User className="h-4 w-4" />
-              <span>Sign in</span>
-            </Link>
+            {user ? (
+              <button
+                onClick={signOut}
+                className="group relative hidden items-center gap-2 overflow-hidden rounded-full glass-strong px-4 py-2 text-sm font-medium transition hover:bg-white/10 sm:inline-flex"
+              >
+                <span className="grid h-6 w-6 place-items-center rounded-full bg-gradient-to-br from-[var(--frost)] to-[var(--aurora)] text-[10px] font-bold text-[var(--deep)]">
+                  {user.name.slice(0, 1).toUpperCase()}
+                </span>
+                <span className="max-w-[6rem] truncate">{user.name}</span>
+                <LogOut className="h-3.5 w-3.5 opacity-60" />
+              </button>
+            ) : (
+              <Link
+                to="/auth"
+                className="group relative hidden items-center gap-2 overflow-hidden rounded-full bg-gradient-to-r from-[var(--frost)] to-[var(--aurora)] px-5 py-2 text-sm font-medium text-[var(--deep)] transition hover:shadow-[0_0_30px_-5px_var(--aurora)] sm:inline-flex"
+              >
+                <User className="h-4 w-4" />
+                <span>Sign in</span>
+              </Link>
+            )}
           </div>
         </div>
       </div>
