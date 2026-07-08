@@ -1,8 +1,9 @@
-import { createFileRoute, Link } from "@tanstack/react-router";
+import { createFileRoute, Link, useNavigate } from "@tanstack/react-router";
 import { AnimatePresence, motion } from "framer-motion";
 import { useState } from "react";
 import { ArrowLeft, ArrowRight, Mail, Lock, User, Snowflake } from "lucide-react";
 import { FloatingOrbs, Particles } from "@/components/FloatingOrbs";
+import { useAuth } from "@/components/AuthProvider";
 
 export const Route = createFileRoute("/auth")({
   head: () => ({
@@ -16,6 +17,17 @@ export const Route = createFileRoute("/auth")({
 
 function AuthPage() {
   const [mode, setMode] = useState<"login" | "signup">("login");
+  const [name, setName] = useState("");
+  const [email, setEmail] = useState("");
+  const { signIn } = useAuth();
+  const navigate = useNavigate();
+
+  const onSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+    const displayName = name.trim() || email.split("@")[0] || "Guest";
+    signIn({ name: displayName, email: email || "guest@frost.flame" });
+    navigate({ to: "/" });
+  };
 
   return (
     <main className="relative min-h-screen overflow-hidden">
@@ -143,7 +155,7 @@ function AuthPage() {
                 animate={{ opacity: 1, x: 0 }}
                 exit={{ opacity: 0, x: mode === "login" ? 20 : -20 }}
                 transition={{ duration: 0.35 }}
-                onSubmit={(e) => e.preventDefault()}
+                onSubmit={onSubmit}
                 className="space-y-4"
               >
                 <h1 className="text-3xl font-semibold tracking-tight">
@@ -156,9 +168,21 @@ function AuthPage() {
                 </p>
 
                 {mode === "signup" && (
-                  <Field icon={<User className="h-4 w-4" />} placeholder="Your name" type="text" />
+                  <Field
+                    icon={<User className="h-4 w-4" />}
+                    placeholder="Your name"
+                    type="text"
+                    value={name}
+                    onChange={(v) => setName(v)}
+                  />
                 )}
-                <Field icon={<Mail className="h-4 w-4" />} placeholder="you@email.com" type="email" />
+                <Field
+                  icon={<Mail className="h-4 w-4" />}
+                  placeholder="you@email.com"
+                  type="email"
+                  value={email}
+                  onChange={(v) => setEmail(v)}
+                />
                 <Field icon={<Lock className="h-4 w-4" />} placeholder="Password" type="password" />
 
                 {mode === "login" && (
@@ -207,10 +231,14 @@ function Field({
   icon,
   placeholder,
   type,
+  value,
+  onChange,
 }: {
   icon: React.ReactNode;
   placeholder: string;
   type: string;
+  value?: string;
+  onChange?: (v: string) => void;
 }) {
   return (
     <label className="group relative block">
@@ -220,6 +248,8 @@ function Field({
       <input
         type={type}
         placeholder={placeholder}
+        value={value}
+        onChange={(e) => onChange?.(e.target.value)}
         className="w-full rounded-2xl border border-white/10 bg-white/5 py-3.5 pl-11 pr-4 text-sm outline-none placeholder:text-foreground/40 transition focus:border-[var(--aurora)]/50 focus:bg-white/10 focus:ring-2 focus:ring-[var(--aurora)]/30"
       />
     </label>
