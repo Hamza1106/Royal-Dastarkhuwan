@@ -63,54 +63,62 @@
 
 :root {
   --radius: 1rem;
-  /* Cold premium palette — frost, ice, glacier teal, aurora */
-  --background: oklch(0.16 0.03 240);
-  --foreground: oklch(0.97 0.01 220);
-  --card: oklch(0.22 0.035 235);
-  --card-foreground: oklch(0.97 0.01 220);
-  --popover: oklch(0.20 0.035 235);
-  --popover-foreground: oklch(0.97 0.01 220);
-  --primary: oklch(0.82 0.14 200);
-  --primary-foreground: oklch(0.15 0.04 240);
-  --secondary: oklch(0.30 0.05 235);
-  --secondary-foreground: oklch(0.97 0.01 220);
-  --muted: oklch(0.26 0.03 235);
-  --muted-foreground: oklch(0.72 0.03 220);
-  --accent: oklch(0.75 0.16 180);
-  --accent-foreground: oklch(0.15 0.04 240);
-  --destructive: oklch(0.65 0.22 25);
-  --destructive-foreground: oklch(0.97 0.01 220);
-  --border: oklch(1 0 0 / 10%);
-  --input: oklch(1 0 0 / 12%);
-  --ring: oklch(0.82 0.14 200);
-  --chart-1: oklch(0.82 0.14 200);
-  --chart-2: oklch(0.75 0.16 180);
-  --chart-3: oklch(0.68 0.15 260);
-  --chart-4: oklch(0.85 0.10 220);
-  --chart-5: oklch(0.70 0.18 320);
+  /* Sunlit multi-color palette — cream canvas, saffron, terracotta ember, emerald basil, plum berry */
+  --background: oklch(0.975 0.018 85);
+  --foreground: oklch(0.20 0.04 40);
+  --card: oklch(0.99 0.012 85);
+  --card-foreground: oklch(0.20 0.04 40);
+  --popover: oklch(0.99 0.012 85);
+  --popover-foreground: oklch(0.20 0.04 40);
+  --primary: oklch(0.68 0.19 45);           /* terracotta ember */
+  --primary-foreground: oklch(0.99 0.01 85);
+  --secondary: oklch(0.94 0.04 80);         /* warm sand */
+  --secondary-foreground: oklch(0.22 0.05 40);
+  --muted: oklch(0.93 0.03 80);
+  --muted-foreground: oklch(0.44 0.05 45);
+  --accent: oklch(0.78 0.17 75);            /* saffron gold */
+  --accent-foreground: oklch(0.20 0.05 40);
+  --destructive: oklch(0.58 0.24 20);
+  --destructive-foreground: oklch(0.99 0.01 85);
+  --border: oklch(0.22 0.05 40 / 12%);
+  --input: oklch(0.22 0.05 40 / 10%);
+  --ring: oklch(0.68 0.19 45);
+  --chart-1: oklch(0.68 0.19 45);
+  --chart-2: oklch(0.78 0.17 75);
+  --chart-3: oklch(0.60 0.16 155);
+  --chart-4: oklch(0.55 0.20 340);
+  --chart-5: oklch(0.62 0.20 260);
 
-  --frost: oklch(0.92 0.04 210);
-  --ice: oklch(0.85 0.08 200);
-  --glacier: oklch(0.55 0.12 220);
-  --aurora: oklch(0.75 0.18 180);
-  --deep: oklch(0.14 0.04 245);
+  /* Named accents for storytelling */
+  --frost: oklch(0.98 0.015 85);            /* cream paper */
+  --ice: oklch(0.94 0.05 75);               /* soft butter */
+  --glacier: oklch(0.60 0.16 155);          /* basil emerald */
+  --aurora: oklch(0.78 0.17 75);            /* saffron */
+  --deep: oklch(0.22 0.06 35);              /* espresso ink */
+  --ember: oklch(0.68 0.19 45);             /* terracotta */
+  --berry: oklch(0.55 0.20 340);            /* plum berry */
+  --azure: oklch(0.62 0.20 260);            /* cobalt spice */
 
   --gradient-hero: radial-gradient(
-    ellipse at 20% 20%,
-    oklch(0.35 0.12 210 / 0.55),
+    ellipse at 15% 15%,
+    oklch(0.78 0.17 75 / 0.55),
     transparent 55%
   ), radial-gradient(
-    ellipse at 80% 60%,
-    oklch(0.4 0.14 180 / 0.45),
+    ellipse at 85% 25%,
+    oklch(0.55 0.20 340 / 0.32),
     transparent 55%
-  ), linear-gradient(180deg, oklch(0.14 0.04 245), oklch(0.18 0.05 235));
-  --gradient-primary: linear-gradient(135deg, var(--ice), var(--aurora));
-  --gradient-glass: linear-gradient(135deg, oklch(1 0 0 / 0.08), oklch(1 0 0 / 0.02));
-  --gradient-text: linear-gradient(135deg, var(--frost), var(--aurora) 60%, var(--primary));
+  ), radial-gradient(
+    ellipse at 60% 90%,
+    oklch(0.60 0.16 155 / 0.35),
+    transparent 55%
+  ), linear-gradient(180deg, oklch(0.985 0.02 85), oklch(0.94 0.05 75));
+  --gradient-primary: linear-gradient(135deg, var(--ember), var(--aurora));
+  --gradient-glass: linear-gradient(135deg, oklch(1 0 0 / 0.65), oklch(1 0 0 / 0.35));
+  --gradient-text: linear-gradient(120deg, var(--ember), var(--berry) 35%, var(--azure) 60%, var(--glacier) 85%);
 
-  --shadow-glow: 0 0 60px -10px oklch(0.75 0.18 190 / 0.5);
-  --shadow-elegant: 0 25px 70px -20px oklch(0.05 0.04 240 / 0.7);
-  --shadow-card: 0 10px 40px -10px oklch(0.05 0.04 240 / 0.6);
+  --shadow-glow: 0 0 60px -10px oklch(0.68 0.19 45 / 0.45);
+  --shadow-elegant: 0 25px 70px -20px oklch(0.35 0.10 40 / 0.35);
+  --shadow-card: 0 10px 40px -10px oklch(0.35 0.10 40 / 0.25);
 
   --ease-smooth: cubic-bezier(0.22, 1, 0.36, 1);
 }
@@ -167,29 +175,29 @@
   }
 
   ::selection {
-    background: var(--aurora);
-    color: var(--deep);
+    background: var(--ember);
+    color: var(--frost);
   }
 
-  /* Custom cold scrollbar */
+  /* Custom warm scrollbar */
   ::-webkit-scrollbar { width: 10px; height: 10px; }
   ::-webkit-scrollbar-track { background: transparent; }
   ::-webkit-scrollbar-thumb {
-    background: linear-gradient(var(--glacier), var(--aurora));
+    background: linear-gradient(var(--ember), var(--berry));
     border-radius: 999px;
   }
 }
 
 @utility glass {
   background: var(--gradient-glass);
-  backdrop-filter: blur(20px) saturate(140%);
-  border: 1px solid oklch(1 0 0 / 0.12);
+  backdrop-filter: blur(20px) saturate(150%);
+  border: 1px solid oklch(0.22 0.05 40 / 0.10);
 }
 
 @utility glass-strong {
-  background: linear-gradient(135deg, oklch(1 0 0 / 0.14), oklch(1 0 0 / 0.04));
-  backdrop-filter: blur(28px) saturate(160%);
-  border: 1px solid oklch(1 0 0 / 0.18);
+  background: linear-gradient(135deg, oklch(1 0 0 / 0.85), oklch(1 0 0 / 0.55));
+  backdrop-filter: blur(28px) saturate(170%);
+  border: 1px solid oklch(0.22 0.05 40 / 0.14);
 }
 
 @utility text-gradient {
@@ -222,8 +230,8 @@
   100% { background-position: 200% 0; }
 }
 @keyframes pulse-glow {
-  0%, 100% { box-shadow: 0 0 40px -10px oklch(0.75 0.18 190 / 0.6); }
-  50% { box-shadow: 0 0 80px -5px oklch(0.75 0.18 190 / 0.9); }
+  0%, 100% { box-shadow: 0 0 40px -10px oklch(0.68 0.19 45 / 0.55); }
+  50% { box-shadow: 0 0 80px -5px oklch(0.78 0.17 75 / 0.85); }
 }
 @keyframes marquee {
   from { transform: translateX(0); }
