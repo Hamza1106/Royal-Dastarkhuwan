@@ -63,62 +63,62 @@
 
 :root {
   --radius: 1rem;
-  /* Sunlit multi-color palette — cream canvas, saffron, terracotta ember, emerald basil, plum berry */
-  --background: oklch(0.975 0.018 85);
-  --foreground: oklch(0.20 0.04 40);
-  --card: oklch(0.99 0.012 85);
-  --card-foreground: oklch(0.20 0.04 40);
-  --popover: oklch(0.99 0.012 85);
-  --popover-foreground: oklch(0.20 0.04 40);
-  --primary: oklch(0.68 0.19 45);           /* terracotta ember */
-  --primary-foreground: oklch(0.99 0.01 85);
-  --secondary: oklch(0.94 0.04 80);         /* warm sand */
-  --secondary-foreground: oklch(0.22 0.05 40);
-  --muted: oklch(0.93 0.03 80);
-  --muted-foreground: oklch(0.44 0.05 45);
-  --accent: oklch(0.78 0.17 75);            /* saffron gold */
-  --accent-foreground: oklch(0.20 0.05 40);
-  --destructive: oklch(0.58 0.24 20);
-  --destructive-foreground: oklch(0.99 0.01 85);
-  --border: oklch(0.22 0.05 40 / 12%);
-  --input: oklch(0.22 0.05 40 / 10%);
-  --ring: oklch(0.68 0.19 45);
-  --chart-1: oklch(0.68 0.19 45);
-  --chart-2: oklch(0.78 0.17 75);
-  --chart-3: oklch(0.60 0.16 155);
-  --chart-4: oklch(0.55 0.20 340);
-  --chart-5: oklch(0.62 0.20 260);
+  /* Premium Blue — midnight canvas with sapphire, cobalt, and icy platinum accents */
+  --background: oklch(0.16 0.045 258);
+  --foreground: oklch(0.97 0.012 240);
+  --card: oklch(0.20 0.05 258);
+  --card-foreground: oklch(0.97 0.012 240);
+  --popover: oklch(0.20 0.05 258);
+  --popover-foreground: oklch(0.97 0.012 240);
+  --primary: oklch(0.66 0.19 250);           /* sapphire */
+  --primary-foreground: oklch(0.99 0.01 240);
+  --secondary: oklch(0.26 0.06 258);
+  --secondary-foreground: oklch(0.97 0.012 240);
+  --muted: oklch(0.24 0.05 258);
+  --muted-foreground: oklch(0.72 0.04 240);
+  --accent: oklch(0.78 0.13 220);            /* icy azure */
+  --accent-foreground: oklch(0.16 0.05 258);
+  --destructive: oklch(0.62 0.22 25);
+  --destructive-foreground: oklch(0.99 0.01 240);
+  --border: oklch(0.85 0.05 240 / 12%);
+  --input: oklch(0.85 0.05 240 / 10%);
+  --ring: oklch(0.66 0.19 250);
+  --chart-1: oklch(0.66 0.19 250);
+  --chart-2: oklch(0.78 0.13 220);
+  --chart-3: oklch(0.55 0.18 265);
+  --chart-4: oklch(0.82 0.10 210);
+  --chart-5: oklch(0.45 0.17 258);
 
   /* Named accents for storytelling */
-  --frost: oklch(0.98 0.015 85);            /* cream paper */
-  --ice: oklch(0.94 0.05 75);               /* soft butter */
-  --glacier: oklch(0.60 0.16 155);          /* basil emerald */
-  --aurora: oklch(0.78 0.17 75);            /* saffron */
-  --deep: oklch(0.22 0.06 35);              /* espresso ink */
-  --ember: oklch(0.68 0.19 45);             /* terracotta */
-  --berry: oklch(0.55 0.20 340);            /* plum berry */
-  --azure: oklch(0.62 0.20 260);            /* cobalt spice */
+  --frost: oklch(0.96 0.02 230);             /* icy platinum */
+  --ice: oklch(0.88 0.07 220);               /* soft ice */
+  --glacier: oklch(0.72 0.13 225);           /* glacier blue */
+  --aurora: oklch(0.78 0.13 220);            /* aurora azure */
+  --deep: oklch(0.13 0.05 258);              /* deep sea ink */
+  --ember: oklch(0.66 0.19 250);             /* sapphire */
+  --berry: oklch(0.55 0.18 275);             /* twilight indigo */
+  --azure: oklch(0.62 0.20 240);             /* cobalt */
 
   --gradient-hero: radial-gradient(
     ellipse at 15% 15%,
-    oklch(0.78 0.17 75 / 0.55),
+    oklch(0.55 0.20 250 / 0.55),
     transparent 55%
   ), radial-gradient(
     ellipse at 85% 25%,
-    oklch(0.55 0.20 340 / 0.32),
+    oklch(0.62 0.20 240 / 0.40),
     transparent 55%
   ), radial-gradient(
     ellipse at 60% 90%,
-    oklch(0.60 0.16 155 / 0.35),
+    oklch(0.72 0.13 225 / 0.30),
     transparent 55%
-  ), linear-gradient(180deg, oklch(0.985 0.02 85), oklch(0.94 0.05 75));
+  ), linear-gradient(180deg, oklch(0.14 0.05 258), oklch(0.19 0.06 258));
   --gradient-primary: linear-gradient(135deg, var(--ember), var(--aurora));
-  --gradient-glass: linear-gradient(135deg, oklch(1 0 0 / 0.65), oklch(1 0 0 / 0.35));
-  --gradient-text: linear-gradient(120deg, var(--ember), var(--berry) 35%, var(--azure) 60%, var(--glacier) 85%);
+  --gradient-glass: linear-gradient(135deg, oklch(1 0 0 / 0.10), oklch(1 0 0 / 0.04));
+  --gradient-text: linear-gradient(120deg, var(--frost), var(--aurora) 35%, var(--azure) 65%, var(--berry) 100%);
 
-  --shadow-glow: 0 0 60px -10px oklch(0.68 0.19 45 / 0.45);
-  --shadow-elegant: 0 25px 70px -20px oklch(0.35 0.10 40 / 0.35);
-  --shadow-card: 0 10px 40px -10px oklch(0.35 0.10 40 / 0.25);
+  --shadow-glow: 0 0 60px -10px oklch(0.66 0.19 250 / 0.55);
+  --shadow-elegant: 0 25px 70px -20px oklch(0.10 0.06 258 / 0.65);
+  --shadow-card: 0 10px 40px -10px oklch(0.10 0.06 258 / 0.55);
 
   --ease-smooth: cubic-bezier(0.22, 1, 0.36, 1);
 }
@@ -191,13 +191,13 @@
 @utility glass {
   background: var(--gradient-glass);
   backdrop-filter: blur(20px) saturate(150%);
-  border: 1px solid oklch(0.22 0.05 40 / 0.10);
+  border: 1px solid oklch(0.85 0.05 240 / 0.14);
 }
 
 @utility glass-strong {
-  background: linear-gradient(135deg, oklch(1 0 0 / 0.85), oklch(1 0 0 / 0.55));
+  background: linear-gradient(135deg, oklch(1 0 0 / 0.12), oklch(1 0 0 / 0.05));
   backdrop-filter: blur(28px) saturate(170%);
-  border: 1px solid oklch(0.22 0.05 40 / 0.14);
+  border: 1px solid oklch(0.85 0.05 240 / 0.18);
 }
 
 @utility text-gradient {
