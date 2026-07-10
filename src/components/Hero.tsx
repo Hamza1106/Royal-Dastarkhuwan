@@ -1,6 +1,7 @@
 import { motion, useScroll, useTransform, useMotionValue, useSpring } from "framer-motion";
 import { useEffect, useRef, useState } from "react";
 import { ArrowRight, Play, Sparkles } from "lucide-react";
+import { Link } from "@tanstack/react-router";
 import heroDish from "@/assets/hero-dish.jpg";
 import { FloatingOrbs, Particles } from "./FloatingOrbs";
 import { StoryModal } from "./StoryModal";
