@@ -5,7 +5,6 @@ import { ArrowLeft } from "lucide-react";
 import { Navbar } from "@/components/Navbar";
 import { Categories } from "@/components/Categories";
 import { Footer } from "@/components/Footer";
-import { FloatingOrbs } from "@/components/FloatingOrbs";
 
 export const Route = createFileRoute("/menu")({
   head: () => ({
@@ -30,31 +29,25 @@ function MenuPage() {
   return (
     <div className="relative min-h-screen overflow-hidden">
       <Navbar />
-      <div className="relative pt-40 pb-8">
-        <FloatingOrbs />
-        <div className="relative mx-auto max-w-7xl px-6">
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.7 }}
-          >
-            <Link
-              to="/"
-              className="inline-flex items-center gap-2 rounded-full glass px-4 py-2 text-xs uppercase tracking-[0.25em] text-foreground/70 hover:text-foreground"
-            >
-              <ArrowLeft className="h-3 w-3" /> Back to home
-            </Link>
-            <h1 className="mt-6 text-5xl font-semibold leading-[1.05] tracking-tight sm:text-7xl">
-              The full <span className="text-gradient">library</span>.
-            </h1>
-            <p className="mt-4 max-w-2xl text-lg text-foreground/60">
-              Nine kitchens. Every dish we plate. Filter, explore, and compose your own
-              tasting arc.
-            </p>
-          </motion.div>
-        </div>
+      <div className="pt-32">
+        <Categories />
       </div>
-      <Categories />
+      <div className="mx-auto max-w-7xl px-6 pb-24 text-center">
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6 }}
+        >
+          <Link
+            to="/"
+            className="group inline-flex items-center gap-3 rounded-full glass-strong px-7 py-4 text-sm font-semibold transition hover:bg-white/10"
+          >
+            <ArrowLeft className="h-4 w-4 transition group-hover:-translate-x-1" />
+            Back to home
+          </Link>
+        </motion.div>
+      </div>
       <Footer />
     </div>
   );

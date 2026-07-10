@@ -1,6 +1,7 @@
 import { motion, useScroll, useTransform, useMotionValue, useSpring } from "framer-motion";
 import { useEffect, useRef, useState } from "react";
 import { ArrowRight, Play, Sparkles } from "lucide-react";
+import { Link } from "@tanstack/react-router";
 import heroDish from "@/assets/hero-dish.jpg";
 import { FloatingOrbs, Particles } from "./FloatingOrbs";
 import { StoryModal } from "./StoryModal";
@@ -135,14 +136,14 @@ export function Hero() {
               transition={{ delay: 1.5, duration: 0.8 }}
               className="mt-10 flex flex-wrap items-center gap-4"
             >
-              <a
-                href="#categories"
+              <Link
+                to="/menu"
                 className="group relative inline-flex items-center gap-3 overflow-hidden rounded-full bg-gradient-to-r from-[var(--frost)] to-[var(--aurora)] px-7 py-4 text-sm font-semibold text-[var(--deep)] transition hover:shadow-[0_0_60px_-5px_var(--aurora)]"
               >
                 <span>Explore the menu</span>
                 <ArrowRight className="h-4 w-4 transition group-hover:translate-x-1" />
                 <span className="absolute inset-0 -translate-x-full bg-gradient-to-r from-transparent via-white/40 to-transparent transition-transform duration-700 group-hover:translate-x-full" />
-              </a>
+              </Link>
               <button
                 onClick={() => setStoryOpen(true)}
                 className="group inline-flex items-center gap-3 rounded-full glass px-6 py-4 text-sm font-medium transition hover:bg-white/10"
