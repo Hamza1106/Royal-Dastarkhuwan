@@ -154,8 +154,8 @@ export function Specials() {
               <span className="text-gradient">one glacial tasting menu.</span>
             </h2>
             <p className="mt-5 max-w-xl text-foreground/60">
-              Drag, scroll or use arrows to move through tonight's six chapters —
-              one plate takes centre stage, its neighbours wait in the wings.
+              Six chapters glide by on their own — hover to pause, drag or use
+              the arrows to linger on a plate.
             </p>
           </motion.div>
 
