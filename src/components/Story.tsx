@@ -20,7 +20,7 @@ const chapters = [
   {
     year: "2026",
     title: "12 cities. One universe.",
-    body: "Today, Frost & Flame is a living brand — kitchens, roasteries, and immersive rooms across Pakistan.",
+    body: "Today, Royal Dastarkhuwan is a living brand — kitchens, roasteries, and immersive rooms across Pakistan.",
   },
 ];
 

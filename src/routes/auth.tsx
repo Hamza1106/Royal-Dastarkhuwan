@@ -8,8 +8,8 @@ import { useAuth } from "@/components/AuthProvider";
 export const Route = createFileRoute("/auth")({
   head: () => ({
     meta: [
-      { title: "Sign in — Frost & Flame" },
-      { name: "description", content: "Enter the Frost & Flame universe." },
+      { title: "Sign in — Royal Dastarkhuwan" },
+      { name: "description", content: "Enter the Royal Dastarkhuwan universe." },
     ],
   }),
   component: AuthPage,
@@ -87,7 +87,7 @@ function AuthPage() {
               <div className="grid h-10 w-10 place-items-center rounded-full bg-gradient-to-br from-[var(--frost)] to-[var(--aurora)] text-[var(--deep)]">
                 <Snowflake className="h-5 w-5" />
               </div>
-              <span className="text-lg font-semibold">Frost & Flame</span>
+              <span className="text-lg font-semibold">Royal Dastarkhuwan</span>
             </div>
             <div className="max-w-md">
               <motion.h2

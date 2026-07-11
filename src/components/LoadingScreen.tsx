@@ -114,7 +114,7 @@ export function LoadingScreen() {
               className="inline-flex items-center gap-2 rounded-full glass px-4 py-2 text-xs uppercase tracking-[0.35em] text-foreground/80"
             >
               <Snowflake className="h-3.5 w-3.5 text-[var(--aurora)]" />
-              Frost & Flame
+              Royal Dastarkhuwan
             </motion.div>
             <div className="w-full max-w-sm">
               <div className="relative h-[3px] w-full overflow-hidden rounded-full bg-white/10">

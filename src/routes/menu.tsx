@@ -9,13 +9,13 @@ import { Footer } from "@/components/Footer";
 export const Route = createFileRoute("/menu")({
   head: () => ({
     meta: [
-      { title: "The Full Menu — Frost & Flame" },
+      { title: "The Full Menu — Royal Dastarkhuwan" },
       {
         name: "description",
         content:
-          "Explore every dish across nine kitchens — desi, biryani, BBQ, sweets, cold-brew chai and more at Frost & Flame.",
+          "Explore every dish across nine kitchens — desi, biryani, BBQ, sweets, cold-brew chai and more at Royal Dastarkhuwan.",
       },
-      { property: "og:title", content: "The Full Menu — Frost & Flame" },
+      { property: "og:title", content: "The Full Menu — Royal Dastarkhuwan" },
       {
         property: "og:description",
         content: "Nine kitchens, one glacial table. Every dish, every ritual.",

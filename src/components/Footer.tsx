@@ -45,7 +45,7 @@ export function Footer() {
               <div className="grid h-9 w-9 place-items-center rounded-full bg-gradient-to-br from-[var(--frost)] to-[var(--aurora)] text-[var(--deep)]">
                 <Snowflake className="h-5 w-5" />
               </div>
-              <span className="text-lg font-semibold text-gradient">Frost & Flame</span>
+              <span className="text-lg font-semibold text-gradient">Royal Dastarkhuwan</span>
             </div>
             <p className="mt-4 max-w-sm text-sm text-foreground/60">
               A living Pakistani restaurant universe. Slow fire, cold light, hand-crafted
@@ -79,7 +79,7 @@ export function Footer() {
         </div>
 
         <div className="mt-12 flex flex-col items-center justify-between gap-4 border-t border-white/10 pt-8 text-xs text-foreground/50 md:flex-row">
-          <div>© 2026 Frost & Flame. Crafted with fire and frost.</div>
+          <div>© 2026 Royal Dastarkhuwan. Crafted with fire and frost.</div>
           <div className="flex gap-4">
             {[Camera, Users, MessageCircle].map((I, i) => (
               <a

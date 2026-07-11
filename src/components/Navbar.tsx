@@ -45,7 +45,7 @@ export function Navbar() {
               <Snowflake className="h-5 w-5" />
             </motion.div>
             <span className="text-lg font-semibold tracking-tight text-gradient">
-              Frost & Flame
+              Royal Dastarkhuwan
             </span>
           </Link>
 

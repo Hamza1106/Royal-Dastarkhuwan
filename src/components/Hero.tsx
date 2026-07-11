@@ -119,7 +119,7 @@ export function Hero() {
                   backgroundSize: "200% 200%",
                 }}
               >
-                Frost & Flame.
+                Royal Dastarkhuwan.
               </motion.span>
             </h1>
 
