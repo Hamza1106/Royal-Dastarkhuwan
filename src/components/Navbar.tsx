@@ -14,7 +14,7 @@ export function Navbar() {
     { to: "/", label: "Home" },
     { to: "/menu", label: "Menu" },
     { to: "/", label: "Story", hash: "story" },
-    { to: "/", label: "Branches", hash: "branches" },
+    { to: "/", label: "Reviews", hash: "reviews" },
     { to: "/", label: "Gallery", hash: "gallery" },
     { to: "/", label: "Contact", hash: "branches" },
   ];
@@ -44,7 +44,7 @@ export function Navbar() {
             >
               <Crown className="h-5 w-5" />
             </motion.div>
-            <span className="text-lg font-semibold tracking-tight text-gradient">
+            <span className="text-lg font-semibold tracking-tight text-gradient" style={{ fontFamily: '"Cormorant Garamond", "Fraunces", serif', letterSpacing: "0.02em" }}>
               Royal Dastarkhuwan
             </span>
           </Link>
