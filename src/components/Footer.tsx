@@ -45,7 +45,7 @@ export function Footer() {
               <div className="grid h-9 w-9 place-items-center rounded-full bg-gradient-to-br from-[var(--frost)] to-[var(--aurora)] text-[var(--deep)]">
                 <Crown className="h-5 w-5" />
               </div>
-              <span className="text-lg font-semibold text-gradient">Royal Dastarkhuwan</span>
+              <span className="text-lg font-semibold text-gradient" style={{ fontFamily: '"Cormorant Garamond", serif', letterSpacing: "0.02em" }}>Royal Dastarkhuwan</span>
             </div>
             <p className="mt-4 max-w-sm text-sm text-foreground/60">
               A living Pakistani restaurant universe. Slow fire, cold light, hand-crafted

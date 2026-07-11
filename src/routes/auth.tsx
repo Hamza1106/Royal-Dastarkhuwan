@@ -87,7 +87,7 @@ function AuthPage() {
               <div className="grid h-10 w-10 place-items-center rounded-full bg-gradient-to-br from-[var(--frost)] to-[var(--aurora)] text-[var(--deep)]">
                 <Crown className="h-5 w-5" />
               </div>
-              <span className="text-lg font-semibold">Royal Dastarkhuwan</span>
+              <span className="text-lg font-semibold" style={{ fontFamily: '"Cormorant Garamond", serif', letterSpacing: "0.02em" }}>Royal Dastarkhuwan</span>
             </div>
             <div className="max-w-md">
               <motion.h2
