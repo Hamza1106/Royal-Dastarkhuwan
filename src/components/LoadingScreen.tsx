@@ -1,6 +1,6 @@
 import { AnimatePresence, motion } from "framer-motion";
 import { useEffect, useState } from "react";
-import { Snowflake } from "lucide-react";
+import { Crown } from "lucide-react";
 import hero from "@/assets/hero-dish.jpg";
 
 export function LoadingScreen() {
@@ -113,8 +113,8 @@ export function LoadingScreen() {
               transition={{ delay: 0.2, duration: 0.6 }}
               className="inline-flex items-center gap-2 rounded-full glass px-4 py-2 text-xs uppercase tracking-[0.35em] text-foreground/80"
             >
-              <Snowflake className="h-3.5 w-3.5 text-[var(--aurora)]" />
-              Frost & Flame
+              <Crown className="h-3.5 w-3.5 text-[var(--aurora)]" />
+              Royal Dastarkhuwan
             </motion.div>
             <div className="w-full max-w-sm">
               <div className="relative h-[3px] w-full overflow-hidden rounded-full bg-white/10">

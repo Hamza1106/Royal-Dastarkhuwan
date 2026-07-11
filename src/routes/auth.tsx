@@ -1,15 +1,15 @@
 import { createFileRoute, Link, useNavigate } from "@tanstack/react-router";
 import { AnimatePresence, motion } from "framer-motion";
 import { useState } from "react";
-import { ArrowLeft, ArrowRight, Mail, Lock, User, Snowflake } from "lucide-react";
+import { ArrowLeft, ArrowRight, Mail, Lock, User, Crown } from "lucide-react";
 import { FloatingOrbs, Particles } from "@/components/FloatingOrbs";
 import { useAuth } from "@/components/AuthProvider";
 
 export const Route = createFileRoute("/auth")({
   head: () => ({
     meta: [
-      { title: "Sign in — Frost & Flame" },
-      { name: "description", content: "Enter the Frost & Flame universe." },
+      { title: "Sign in — Royal Dastarkhuwan" },
+      { name: "description", content: "Enter the Royal Dastarkhuwan universe." },
     ],
   }),
   component: AuthPage,
@@ -85,9 +85,9 @@ function AuthPage() {
           <div className="absolute inset-0 flex flex-col justify-between p-12">
             <div className="flex items-center gap-2">
               <div className="grid h-10 w-10 place-items-center rounded-full bg-gradient-to-br from-[var(--frost)] to-[var(--aurora)] text-[var(--deep)]">
-                <Snowflake className="h-5 w-5" />
+                <Crown className="h-5 w-5" />
               </div>
-              <span className="text-lg font-semibold">Frost & Flame</span>
+              <span className="text-lg font-semibold" style={{ fontFamily: '"Cormorant Garamond", serif', letterSpacing: "0.02em" }}>Royal Dastarkhuwan</span>
             </div>
             <div className="max-w-md">
               <motion.h2

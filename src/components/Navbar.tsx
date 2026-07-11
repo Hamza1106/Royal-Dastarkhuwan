@@ -1,7 +1,7 @@
 import { Link } from "@tanstack/react-router";
 import { AnimatePresence, motion, useScroll, useMotionValueEvent } from "framer-motion";
 import { useState } from "react";
-import { LogOut, ShoppingBag, Snowflake, User } from "lucide-react";
+import { LogOut, ShoppingBag, Crown, User } from "lucide-react";
 import { useCart } from "./CartProvider";
 import { useAuth } from "./AuthProvider";
 
@@ -14,7 +14,7 @@ export function Navbar() {
     { to: "/", label: "Home" },
     { to: "/menu", label: "Menu" },
     { to: "/", label: "Story", hash: "story" },
-    { to: "/", label: "Branches", hash: "branches" },
+    { to: "/", label: "Reviews", hash: "reviews" },
     { to: "/", label: "Gallery", hash: "gallery" },
     { to: "/", label: "Contact", hash: "branches" },
   ];
@@ -42,10 +42,10 @@ export function Navbar() {
               transition={{ duration: 0.6 }}
               className="grid h-9 w-9 place-items-center rounded-full bg-gradient-to-br from-[var(--frost)] to-[var(--aurora)] text-[var(--deep)]"
             >
-              <Snowflake className="h-5 w-5" />
+              <Crown className="h-5 w-5" />
             </motion.div>
-            <span className="text-lg font-semibold tracking-tight text-gradient">
-              Frost & Flame
+            <span className="text-lg font-semibold tracking-tight text-gradient" style={{ fontFamily: '"Cormorant Garamond", "Fraunces", serif', letterSpacing: "0.02em" }}>
+              Royal Dastarkhuwan
             </span>
           </Link>
 
