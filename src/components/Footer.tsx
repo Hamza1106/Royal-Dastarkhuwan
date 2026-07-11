@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import { Snowflake, ArrowRight, Camera, Users, MessageCircle } from "lucide-react";
+import { Crown, ArrowRight, Camera, Users, MessageCircle } from "lucide-react";
 
 export function Footer() {
   return (
@@ -43,7 +43,7 @@ export function Footer() {
           <div className="md:col-span-2">
             <div className="flex items-center gap-2">
               <div className="grid h-9 w-9 place-items-center rounded-full bg-gradient-to-br from-[var(--frost)] to-[var(--aurora)] text-[var(--deep)]">
-                <Snowflake className="h-5 w-5" />
+                <Crown className="h-5 w-5" />
               </div>
               <span className="text-lg font-semibold text-gradient">Royal Dastarkhuwan</span>
             </div>
