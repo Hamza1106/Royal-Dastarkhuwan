@@ -1,7 +1,7 @@
 import { AnimatePresence, motion } from "framer-motion";
 import { ArrowLeft, ArrowRight, Plus, Star } from "lucide-react";
 import { Link } from "@tanstack/react-router";
-import { useEffect, useRef, useState, type WheelEvent } from "react";
+import { useEffect, useRef, useState } from "react";
 import { dishes } from "./menuData";
 import { useCart } from "./CartProvider";
 
@@ -107,7 +107,7 @@ export function Specials() {
   const len = specials.length;
   const [i, setI] = useState(0);
   const [dir, setDir] = useState<1 | -1>(1);
-  const lockRef = useRef(false);
+  const [paused, setPaused] = useState(false);
 
   const go = (d: 1 | -1) => {
     setDir(d);
@@ -123,15 +123,15 @@ export function Specials() {
     return () => window.removeEventListener("keydown", onKey);
   });
 
-  const onWheel = (e: WheelEvent<HTMLDivElement>) => {
-    const delta = Math.abs(e.deltaX) > Math.abs(e.deltaY) ? e.deltaX : e.deltaY;
-    if (Math.abs(delta) < 20 || lockRef.current) return;
-    lockRef.current = true;
-    go(delta > 0 ? 1 : -1);
-    window.setTimeout(() => {
-      lockRef.current = false;
-    }, 550);
-  };
+  // Auto-advance every 3s, pause on hover
+  useEffect(() => {
+    if (paused) return;
+    const id = window.setInterval(() => {
+      setDir(1);
+      setI((v) => (v + 1) % len);
+    }, 3000);
+    return () => window.clearInterval(id);
+  }, [paused, len]);
 
   return (
     <section id="specials" className="relative py-32">
@@ -177,7 +177,8 @@ export function Specials() {
 
         {/* Carousel stage */}
         <div
-          onWheel={onWheel}
+          onMouseEnter={() => setPaused(true)}
+          onMouseLeave={() => setPaused(false)}
           className="relative mx-auto flex h-[640px] w-full items-center justify-center overflow-hidden"
           style={{ perspective: 1600 }}
         >
