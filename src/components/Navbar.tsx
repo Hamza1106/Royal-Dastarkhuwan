@@ -16,6 +16,7 @@ export function Navbar() {
     { to: "/", label: "Story", hash: "story" },
     { to: "/", label: "Branches", hash: "branches" },
     { to: "/", label: "Gallery", hash: "gallery" },
+    { to: "/", label: "Contact", hash: "branches" },
   ];
   const { count, setOpen } = useCart();
   const { user, signOut } = useAuth();

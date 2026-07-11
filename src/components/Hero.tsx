@@ -2,7 +2,10 @@ import { motion, useScroll, useTransform, useMotionValue, useSpring } from "fram
 import { useEffect, useRef, useState } from "react";
 import { ArrowRight, Play, Sparkles } from "lucide-react";
 import { Link } from "@tanstack/react-router";
-import heroDish from "@/assets/hero-dish.jpg";
+import heroPlating from "@/assets/hero-plating.jpg";
+import dishNihari from "@/assets/dish-nihari.jpg";
+import dishRasMalai from "@/assets/dish-ras-malai.jpg";
+import dishChai from "@/assets/dish-chai.jpg";
 import { FloatingOrbs, Particles } from "./FloatingOrbs";
 import { StoryModal } from "./StoryModal";
 
@@ -89,14 +92,14 @@ export function Hero() {
               A living restaurant universe
             </motion.div>
 
-            <h1 className="text-5xl font-semibold leading-[1.02] tracking-tight sm:text-7xl lg:text-[5.5rem]">
+            <h1 className="font-display text-6xl font-[400] leading-[0.95] tracking-[-0.02em] sm:text-8xl lg:text-[6.5rem]">
               {"Taste the".split("").map((c, i) => (
                 <motion.span
                   key={i}
                   initial={{ opacity: 0, y: 40, filter: "blur(10px)" }}
                   animate={{ opacity: 1, y: 0, filter: "blur(0px)" }}
                   transition={{ delay: 0.05 * i + 0.3, duration: 0.6 }}
-                  className="inline-block"
+                  className="inline-block italic"
                 >
                   {c === " " ? "\u00A0" : c}
                 </motion.span>
@@ -106,7 +109,7 @@ export function Hero() {
                 initial={{ opacity: 0, y: 40 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.9, duration: 0.9 }}
-                className="text-gradient animate-aurora"
+                className="text-gradient animate-aurora font-[500]"
                 style={{
                   backgroundImage:
                     "linear-gradient(120deg, var(--frost), var(--aurora), var(--primary), var(--frost))",
@@ -179,59 +182,111 @@ export function Hero() {
             </motion.div>
           </div>
 
-          {/* Visual */}
+          {/* Visual — editorial magazine composition */}
           <motion.div
             style={{ scale, x: smx, y: smy }}
-            className="relative mx-auto aspect-square w-full max-w-[560px]"
+            className="relative mx-auto aspect-[4/5] w-full max-w-[540px]"
           >
-            {/* Rotating ring */}
-            <div className="absolute inset-0 animate-spin-slow rounded-full border border-dashed border-white/20" />
-            <div
-              className="absolute inset-6 animate-spin-slow rounded-full border border-white/10"
-              style={{ animationDirection: "reverse", animationDuration: "40s" }}
-            />
+            {/* Soft ambient glow */}
+            <div className="absolute -inset-10 rounded-[3rem] bg-gradient-to-br from-[var(--aurora)]/25 via-[var(--primary)]/20 to-transparent blur-3xl" />
 
-            {/* Glow */}
-            <div className="absolute inset-10 rounded-full bg-gradient-to-br from-[var(--aurora)]/30 to-[var(--primary)]/30 blur-3xl" />
+            {/* Vertical label */}
+            <div className="absolute -left-4 top-8 z-20 hidden rotate-180 text-[10px] uppercase tracking-[0.5em] text-foreground/50 [writing-mode:vertical-rl] sm:block">
+              Chapter 01 — The Sapphire Plate
+            </div>
 
+            {/* Main tilted card */}
             <motion.div
-              animate={{ y: [0, -20, 0] }}
-              transition={{ duration: 6, repeat: Infinity, ease: "easeInOut" }}
-              className="relative h-full w-full overflow-hidden rounded-full glass-strong elegant-shadow"
+              initial={{ opacity: 0, y: 40, rotate: -6 }}
+              animate={{ opacity: 1, y: 0, rotate: -4 }}
+              transition={{ delay: 0.4, duration: 1.1, ease: [0.22, 1, 0.36, 1] }}
+              whileHover={{ rotate: 0, scale: 1.02 }}
+              className="relative h-full w-full overflow-hidden rounded-[2.2rem] glass-strong elegant-shadow"
             >
               <img
-                src={heroDish}
-                alt="Signature chicken karahi in copper pan"
+                src={heroPlating}
+                alt="Saffron biryani plated with rose petals and silver leaf"
                 className="h-full w-full object-cover"
-                width={1400}
-                height={1400}
+                width={1280}
+                height={1600}
               />
-              <div className="absolute inset-0 rounded-full ring-1 ring-inset ring-white/20" />
+              <div className="absolute inset-0 bg-gradient-to-t from-[var(--deep)]/70 via-transparent to-transparent" />
+              <div className="absolute inset-0 rounded-[2.2rem] ring-1 ring-inset ring-white/15" />
+
+              {/* Bottom caption */}
+              <div className="absolute inset-x-0 bottom-0 flex items-end justify-between gap-3 p-5">
+                <div>
+                  <div className="text-[10px] uppercase tracking-[0.35em] text-foreground/60">Tonight's signature</div>
+                  <div className="mt-1 font-display text-2xl italic leading-none">Sindhi Royal Biryani</div>
+                </div>
+                <div className="rounded-full bg-white/15 px-3 py-1.5 text-[11px] font-semibold backdrop-blur">
+                  Rs. 1,290
+                </div>
+              </div>
             </motion.div>
 
-            {/* Floating chips */}
-            {[
-              { top: "8%", left: "-8%", label: "🌶️ Signature Spice", d: 0 },
-              { top: "40%", left: "88%", label: "❄️ Cold Brew Chai", d: 1 },
-              { top: "82%", left: "6%", label: "⭐ 4.9 / 2.1k reviews", d: 2 },
-            ].map((c) => (
+            {/* Floating dish thumb — top right */}
+            <motion.div
+              initial={{ opacity: 0, x: 30, y: -20, rotate: 8 }}
+              animate={{ opacity: 1, x: 0, y: 0, rotate: 6 }}
+              transition={{ delay: 0.9, duration: 0.9 }}
+              className="absolute -right-6 top-6 z-10 w-36 sm:w-44"
+            >
               <motion.div
-                key={c.label}
-                initial={{ opacity: 0, scale: 0.6 }}
-                animate={{ opacity: 1, scale: 1 }}
-                transition={{ delay: 1.4 + c.d * 0.2, duration: 0.6 }}
-                className="absolute"
-                style={{ top: c.top, left: c.left }}
+                animate={{ y: [0, -12, 0] }}
+                transition={{ duration: 6, repeat: Infinity, ease: "easeInOut" }}
+                className="overflow-hidden rounded-2xl glass-strong elegant-shadow ring-1 ring-white/10"
               >
-                <motion.div
-                  animate={{ y: [0, -10, 0] }}
-                  transition={{ duration: 4 + c.d, repeat: Infinity, ease: "easeInOut" }}
-                  className="whitespace-nowrap rounded-full glass-strong px-4 py-2 text-xs font-medium"
-                >
-                  {c.label}
-                </motion.div>
+                <img src={dishNihari} alt="Slow-cooked nihari" className="aspect-square w-full object-cover" />
+                <div className="flex items-center justify-between px-3 py-2 text-[10px]">
+                  <span className="font-medium">Nihari</span>
+                  <span className="text-foreground/60">Slow · 8h</span>
+                </div>
               </motion.div>
-            ))}
+            </motion.div>
+
+            {/* Floating chai — bottom left */}
+            <motion.div
+              initial={{ opacity: 0, x: -30, y: 20, rotate: -10 }}
+              animate={{ opacity: 1, x: 0, y: 0, rotate: -8 }}
+              transition={{ delay: 1.1, duration: 0.9 }}
+              className="absolute -left-8 bottom-16 z-10 w-32 sm:w-40"
+            >
+              <motion.div
+                animate={{ y: [0, 10, 0] }}
+                transition={{ duration: 7, repeat: Infinity, ease: "easeInOut" }}
+                className="overflow-hidden rounded-2xl glass-strong elegant-shadow ring-1 ring-white/10"
+              >
+                <img src={dishChai} alt="Cold brew Kashmiri chai" className="aspect-square w-full object-cover" />
+                <div className="flex items-center justify-between px-3 py-2 text-[10px]">
+                  <span className="font-medium">Cold Chai</span>
+                  <span className="text-foreground/60">Iced</span>
+                </div>
+              </motion.div>
+            </motion.div>
+
+            {/* Floating dessert badge */}
+            <motion.div
+              initial={{ opacity: 0, scale: 0.6 }}
+              animate={{ opacity: 1, scale: 1 }}
+              transition={{ delay: 1.3, duration: 0.7 }}
+              className="absolute -right-10 bottom-8 z-20 hidden w-32 sm:block"
+            >
+              <motion.div
+                animate={{ y: [0, -8, 0], rotate: [4, -2, 4] }}
+                transition={{ duration: 8, repeat: Infinity, ease: "easeInOut" }}
+                className="overflow-hidden rounded-full glass-strong ring-1 ring-white/15 elegant-shadow"
+              >
+                <img src={dishRasMalai} alt="Ras malai" className="aspect-square w-full object-cover" />
+              </motion.div>
+              <div className="mt-2 rounded-full glass px-3 py-1 text-center text-[10px] font-medium">
+                ⭐ 4.9 · 2.1k reviews
+              </div>
+            </motion.div>
+
+            {/* Corner accent */}
+            <div className="pointer-events-none absolute -left-6 -top-6 h-24 w-24 rounded-full border border-white/15" />
+            <div className="pointer-events-none absolute -left-3 -top-3 h-14 w-14 rounded-full bg-gradient-to-br from-[var(--frost)] to-[var(--aurora)] blur-2xl opacity-60" />
           </motion.div>
         </div>
       </motion.div>
