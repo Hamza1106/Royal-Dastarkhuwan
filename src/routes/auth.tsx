@@ -97,7 +97,7 @@ function AuthPage() {
                 className="text-5xl font-semibold leading-tight tracking-tight"
               >
                 Step into the{" "}
-                <span className="text-gradient">glacier lounge.</span>
+                <span className="text-gradient">Royal Dastarkhuwan.</span>
               </motion.h2>
               <motion.p
                 initial={{ opacity: 0, y: 20 }}
@@ -159,7 +159,7 @@ function AuthPage() {
                 className="space-y-4"
               >
                 <h1 className="text-3xl font-semibold tracking-tight">
-                  {mode === "login" ? "Welcome back." : "Join the universe."}
+                  {mode === "login" ? "Welcome back." : "Join the Dastarkhuwan."}
                 </h1>
                 <p className="text-sm text-foreground/60">
                   {mode === "login"
