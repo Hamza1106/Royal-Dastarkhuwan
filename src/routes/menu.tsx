@@ -5,27 +5,18 @@ import { ArrowLeft } from "lucide-react";
 import { Navbar } from "@/components/Navbar";
 import { Categories } from "@/components/Categories";
 import { Footer } from "@/components/Footer";
+import { useDocumentHead } from "@/hooks/use-document-head";
 
 export const Route = createFileRoute("/menu")({
-  head: () => ({
-    meta: [
-      { title: "The Full Menu — Royal Dastarkhuwan" },
-      {
-        name: "description",
-        content:
-          "Explore every dish across nine kitchens — desi, biryani, BBQ, sweets, cold-brew chai and more at Royal Dastarkhuwan.",
-      },
-      { property: "og:title", content: "The Full Menu — Royal Dastarkhuwan" },
-      {
-        property: "og:description",
-        content: "Nine kitchens, one glacial table. Every dish, every ritual.",
-      },
-    ],
-  }),
   component: MenuPage,
 });
 
 function MenuPage() {
+  useDocumentHead(
+    "The Full Menu — Royal Dastarkhuwan",
+    "Explore every dish across nine kitchens — desi, biryani, BBQ, sweets, cold-brew chai and more at Royal Dastarkhuwan.",
+  );
+
   return (
     <div className="relative min-h-screen overflow-hidden">
       <Navbar />

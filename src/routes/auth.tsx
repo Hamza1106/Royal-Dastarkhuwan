@@ -4,18 +4,15 @@ import { useState } from "react";
 import { ArrowLeft, ArrowRight, Mail, Lock, User, Crown } from "lucide-react";
 import { FloatingOrbs, Particles } from "@/components/FloatingOrbs";
 import { useAuth } from "@/components/AuthProvider";
+import { useDocumentHead } from "@/hooks/use-document-head";
 
 export const Route = createFileRoute("/auth")({
-  head: () => ({
-    meta: [
-      { title: "Sign in — Royal Dastarkhuwan" },
-      { name: "description", content: "Enter the Royal Dastarkhuwan universe." },
-    ],
-  }),
   component: AuthPage,
 });
 
 function AuthPage() {
+  useDocumentHead("Sign in — Royal Dastarkhuwan", "Enter the Royal Dastarkhuwan universe.");
+
   const [mode, setMode] = useState<"login" | "signup">("login");
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");

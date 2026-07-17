@@ -1,15 +1,6 @@
-import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
-import {
-  Outlet,
-  Link,
-  createRootRouteWithContext,
-  useRouter,
-  HeadContent,
-  Scripts,
-} from "@tanstack/react-router";
-import { useEffect, type ReactNode } from "react";
-
-import appCss from "../styles.css?url";
+import type { QueryClient } from "@tanstack/react-query";
+import { QueryClientProvider } from "@tanstack/react-query";
+import { Outlet, Link, createRootRouteWithContext } from "@tanstack/react-router";
 
 import { CartProvider } from "../components/CartProvider";
 import { CartDrawer } from "../components/CartDrawer";
@@ -38,58 +29,10 @@ function NotFoundComponent() {
   );
 }
 
-
-
 export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()({
-  head: () => ({
-    meta: [
-      { charSet: "utf-8" },
-      { name: "viewport", content: "width=device-width, initial-scale=1" },
-      { title: "Royal Dastarkhuwan — A living Pakistani restaurant universe" },
-      { name: "description", content: "Slow fire, cold light. Karahi, biryani, BBQ, sweets and cold-brew chai across 12 cities. An immersive tasting journey." },
-      { name: "author", content: "Royal Dastarkhuwan" },
-      { property: "og:title", content: "Royal Dastarkhuwan — A living Pakistani restaurant universe" },
-      { property: "og:description", content: "Slow fire, cold light. Karahi, biryani, BBQ, sweets and cold-brew chai across 12 cities. An immersive tasting journey." },
-      { property: "og:type", content: "website" },
-      { name: "twitter:card", content: "summary_large_image" },
-      { name: "twitter:title", content: "Royal Dastarkhuwan — A living Pakistani restaurant universe" },
-      { name: "twitter:description", content: "Slow fire, cold light. Karahi, biryani, BBQ, sweets and cold-brew chai across 12 cities. An immersive tasting journey." },
-      { property: "og:image", content: "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/6ea366ee-ab0f-44f4-a833-7a6a4fce554e/id-preview-86418e36--86ff5433-f0de-416e-b4ce-93154fbc2b03.lovable.app-1783675955750.png" },
-      { name: "twitter:image", content: "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/6ea366ee-ab0f-44f4-a833-7a6a4fce554e/id-preview-86418e36--86ff5433-f0de-416e-b4ce-93154fbc2b03.lovable.app-1783675955750.png" },
-    ],
-    links: [
-      {
-        rel: "stylesheet",
-        href: appCss,
-      },
-      { rel: "icon", href: "/favicon.ico", type: "image/x-icon" },
-      { rel: "preconnect", href: "https://fonts.googleapis.com" },
-      { rel: "preconnect", href: "https://fonts.gstatic.com", crossOrigin: "anonymous" },
-      {
-        rel: "stylesheet",
-        href: "https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Fraunces:opsz,wght@9..144,300;9..144,400;9..144,500;9..144,600;9..144,700&family=Inter:wght@300;400;500;600;700&display=swap",
-      },
-    ],
-  }),
-  shellComponent: RootShell,
   component: RootComponent,
   notFoundComponent: NotFoundComponent,
-  
 });
-
-function RootShell({ children }: { children: ReactNode }) {
-  return (
-    <html lang="en">
-      <head>
-        <HeadContent />
-      </head>
-      <body>
-        {children}
-        <Scripts />
-      </body>
-    </html>
-  );
-}
 
 function RootComponent() {
   const { queryClient } = Route.useRouteContext();

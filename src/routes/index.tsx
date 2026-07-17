@@ -10,12 +10,18 @@ import { Branches } from "@/components/Branches";
 import { Deals } from "@/components/Deals";
 import { Gallery } from "@/components/Gallery";
 import { Footer } from "@/components/Footer";
+import { useDocumentHead } from "@/hooks/use-document-head";
 
 export const Route = createFileRoute("/")({
   component: Index,
 });
 
 function Index() {
+  useDocumentHead(
+    "Royal Dastarkhuwan — A living Pakistani restaurant universe",
+    "Slow fire, cold light. Karahi, biryani, BBQ, sweets and cold-brew chai across 12 cities. An immersive tasting journey.",
+  );
+
   return (
     <div className="relative overflow-hidden">
       <Navbar />
